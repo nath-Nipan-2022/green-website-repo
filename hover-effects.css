@@ -1,0 +1,167 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --bgColor: #4158D0;
+    --background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #ffb570 100%);
+    --buttonColor: #ffaa3b;
+    --buttonBgColor: linear-gradient(147deg, #ff723b 0%, #5f5dfc 74%);
+}
+
+body
+{
+    display: grid;
+    place-items: center;
+}
+
+.wrapper
+{
+    width: 100%;
+    max-width: 60rem;
+    height: 100vh;
+    background: var(--bgColor);
+    background-image: var(--background-image);
+    display: grid;
+    place-items: center;
+    z-index: 1;
+}
+
+.item1,
+.item3
+{
+
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    border-radius: 25px;
+    text-align: center;
+    padding: 8px 32px;
+}
+
+.item1
+{
+    background-color: rgb(2, 56, 173);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: .3s ease-in-out;
+}
+
+.item1::before
+{
+    content: '';
+    width: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: 25px;
+    background: var(--buttonColor);
+    background-image: var(--buttonBgColor);
+    transition: .5s ease;
+}
+
+.item1:hover::before
+{
+    border-right: 3px solid rgb(255, 223, 165);
+    width: 100%;
+}
+
+.item2
+{
+    position: relative;
+    width: 14rem;
+    height: auto;
+    /* This really sort out my issue */
+    overflow: hidden;
+    border-radius: 20px;
+    border: 2px solid orange;
+    box-shadow: 0 0 20px #fcd8d8;
+
+}
+
+.item2 img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item2:before
+{
+    content: 'Please subscribe';
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    border-radius: 15px;
+    background-color: var(--buttonColor);
+    background-image: var(--buttonBgColor);
+    scale: 0;
+    display: grid;
+    place-items: center;
+    color: rgb(255, 251, 0);
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    z-index: 1;
+    transition: .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.item2:hover:before
+{
+    height: 100%;
+    scale: 1;
+}
+
+.item3
+{
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 2px 2px var(--buttonColor);
+    background: linear-gradient(to right, #08000f, #cc3304);
+    transition: .5s ease;
+}
+
+.item3:hover
+{
+    letter-spacing: 4px;
+    box-shadow: inset 0 0 2px 2px var(--buttonColor),
+        0 0 20px 2px var(--buttonColor);
+}
+
+.item3::before,
+.item3::after
+{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    transition: .4s ease;
+}
+
+.item3::before
+{
+    top: 0;
+    right: 20%;
+}
+
+.item3::after
+{
+    bottom: 0;
+    left: 20%;
+}
+
+.item3:hover::before
+{
+    right: 70%;
+}
+
+.item3:hover::after
+{
+    left: 70%;
+}

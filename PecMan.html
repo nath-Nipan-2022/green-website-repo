@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		:root {
+			--color: #1e362e;
+		}
+		body {
+			display: flex;
+			justify-content: space-between;
+			padding: 2rem;
+			background-color: var(--color);
+		}
+		.container-circle {
+			height: 100px;
+			width: 100px;
+			border-radius: 50%;
+			background-color: olivedrab;
+			position: relative;
+			transform: rotate(135deg);
+			transition: translate 0.5s;
+			overflow: hidden;
+			z-index: 1;
+		}
+		.container-circle:hover {
+			translate: 200px;
+			cursor: pointer;
+		}
+		.container-circle .square {
+			width: 50px;
+			height: 50px;
+			background-color: var(--color);
+		}
+		.container-2 {
+			width: 100px;
+			height: 100px;
+			background-color: orangered;
+			border-top-left-radius: 50%;
+			border-top-right-radius: 50%;
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			justify-content: space-evenly;
+			transition: 0.5s;
+		}
+		.container-2:hover {
+			rotate: 45deg;
+		}
+		.container-2 .triangle {
+			width: 30px;
+			height: 30px;
+			background-color: var(--color);
+			margin-top: 85%;
+			transform: rotateZ(45deg);
+		}
+		.wrapper {
+			display: flex;
+			justify-content: dense;
+			align-items: center;
+		}
+		.wrapper div {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color: #03f5e9;
+			margin: 0 0.5rem;
+			/* transition: 0.5s ease; */
+		}
+		@keyframes rush {
+			0%,100%
+			{
+				translate: 0px;
+			}
+			50% {
+				translate: 100vw;
+			}
+		}
+		.wrapper:hover div {
+			animation: rush 3s cubic-bezier(0.47, 0, 0.745, 0.715) infinite reverse;
+		}
+		.wrapper:hover div:nth-of-type(7) {
+			animation-delay: 0ms;
+		}
+		.wrapper:hover div:nth-of-type(6) {
+			animation-delay: 200ms;
+		}
+		.wrapper:hover div:nth-of-type(5) {
+			animation-delay: 400ms;
+		}
+		.wrapper:hover div:nth-of-type(4) {
+			animation-delay: 600ms;
+		}
+		.wrapper:hover div:nth-of-type(3) {
+			animation-delay: 800ms;
+		}
+		.wrapper:hover div:nth-of-type(2) {
+			animation-delay: 1000ms;
+		}
+		.wrapper:hover div:nth-of-type(1) {
+			animation-delay: 1200ms;
+		}
+	</style>
+	<body>
+		<div class="container-circle">
+			<div class="square"></div>
+		</div>
+		<div class="wrapper">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<div class="container-2">
+			<div class="triangle"></div>
+			<div class="triangle"></div>
+			<div class="triangle"></div>
+		</div>
+	</body>
+</html>
