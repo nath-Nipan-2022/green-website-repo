@@ -1,0 +1,148 @@
+* {
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   letter-spacing: 1px;
+}
+
+body {
+   width: auto;
+   height: 100vh;
+   padding: 1rem;
+   color: #f2f2f2;
+   background: #862525;
+   /* centering */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   --lineClr: hsl(340, 78%, 63%);
+   --sdwClr: hsl(350, 78%, 62%);
+}
+
+.container {
+   border: solid#b69999+2px;
+   background-color: hsl(337, 55%, 28%);
+   box-shadow: 0 0 150px var(--sdwClr);
+   height: 15em;
+   border-radius: 10px;
+   padding: 1rem;
+   display: inline-flex;
+   flex-direction: column;
+}
+label {
+   font-size: 14px;
+}
+input[type='password'],
+input[type='text'] {
+   padding: .3em;
+   border-radius: 5px;
+   border: none;
+   margin-top: .3rem;
+}
+
+.btn {
+   margin-top: 1.6rem;
+   padding: 4px 10px;
+   border: none;
+   border-radius: 4px;
+   background-color: transparent;
+   align-self: start;
+   cursor: pointer;
+   position: relative;
+   /* Important */
+   overflow: hidden;
+   transition: .3s;
+}
+
+.btn:hover {
+   background-color: var(--sdwClr);
+   box-shadow: 0 0 5px var(--sdwClr),
+      0 0 25px var(--sdwClr),
+      0 0 50px var(--sdwClr),
+      0 0 100px var(--sdwClr);
+}
+
+.btn a {
+   text-decoration: none;
+   color: #fff;
+   text-transform: uppercase;
+}
+
+/* all 4 lines styling */
+.btn span {
+   width: 2px;
+   height: 100%;
+   color: #000;
+   background: linear-gradient(135deg, var(--sdwClr), var(--lineClr));
+   text-align: left;
+   display: block;
+   position: absolute;
+}
+
+/* ⭐ animate the individual lines carefully ⭐ */
+/* down to up */
+.btn span:first-child {
+   bottom: -100%;
+   left: 0;
+   animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+
+   50%,
+   100% {
+      bottom: 100%;
+   }
+}
+
+/* width * height for even lines */
+.btn a span:nth-child(2n) {
+   width: 100%;
+   height: 2px;
+}
+
+/* left to right */
+.btn a span:nth-child(2) {
+   top: 0;
+   left: -100%;
+   animation: btn-anim2 1s linear infinite;
+   animation-delay: .25s;
+}
+
+@keyframes btn-anim2 {
+
+   50%,
+   100% {
+      left: 100%;
+   }
+}
+
+/* up to down */
+.btn span:nth-child(3) {
+   top: -100%;
+   right: 0;
+   animation: btn-anim3 1s linear infinite;
+   animation-delay: .5s;
+}
+
+@keyframes btn-anim3 {
+
+   50%,
+   100% {
+      top: 100%;
+   }
+}
+
+/* right to left */
+.btn a span:nth-child(4) {
+   bottom: 0;
+   right: -100%;
+   animation: btn-anim4 1s linear infinite;
+   animation-delay: .7s;
+}
+
+@keyframes btn-anim4 {
+
+   50%,
+   100% {
+      right: 100%;
+   }
+}
