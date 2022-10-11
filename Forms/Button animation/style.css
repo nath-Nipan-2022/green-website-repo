@@ -19,25 +19,45 @@ body {
 
 .container {
    border: solid#b69999+2px;
-   background-color: hsl(337, 55%, 28%);
+   background: hsl(337, 55%, 28%);
    box-shadow: 0 0 150px var(--sdwClr);
    height: 15em;
    border-radius: 10px;
    padding: 1rem;
-   display: inline-flex;
-   flex-direction: column;
-}
-label {
-   font-size: 14px;
-}
-input[type='password'],
-input[type='text'] {
-   padding: .3em;
-   border-radius: 5px;
-   border: none;
-   margin-top: .3rem;
 }
 
+.inputArea{
+   padding-block: .8rem;
+   position: relative;
+}
+
+.inputArea input{
+   border: none;
+   margin-top: .3rem;
+   outline: none;
+   color: white;
+   background-color: transparent;
+   border-bottom: solid#f2f2f2+2px;
+   transition:  .3s;
+}
+.inputArea label {
+   font-size: 14px;
+   width: fit-content;
+   position: absolute;
+   left: 0;
+   top: 30%;
+   pointer-events: none;
+   transition: all .3s ;
+}
+.inputArea input:focus,
+.inputArea input:hover{
+   border-bottom-color: var(--lineClr);
+}
+.inputArea input:focus ~ label,
+.inputArea input:valid ~ label {
+   top: 0;
+   font-size: 12px;
+}
 .btn {
    margin-top: 1.6rem;
    padding: 4px 10px;

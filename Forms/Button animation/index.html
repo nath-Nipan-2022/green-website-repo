@@ -8,14 +8,17 @@
 		<title>button shadow</title>
 	</head>
 	<body>
-		<div class="container">
+		<form action="form" class="container">
 			<h3 style="text-align: center;font-weight: 100">Login Form</h3>
          <!-- inputs -->
-            <label for="name">Username</label>
+         <div class="inputArea">
             <input type="text" name="username" id="name" required/>
-            <br />
-            <label for="password">Password</label>
+            <label class="label" for="name">Username</label>
+         </div>
+         <div class="inputArea">
             <input type="password" name="password" id="password" required/>
+            <label class="label" for="password">Password</label>
+         </div>
             <!-- Submit button -->
             <button class="btn">
                <a href="#" >
@@ -26,6 +29,6 @@
                   Submit
                </a>
             </button>
-		</div>
+         </form>
 	</body>
 </html>

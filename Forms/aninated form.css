@@ -1,24 +1,27 @@
-*{
-    background-color: hsl(0, 0%, 48%);
+* {
+    background-color: olivedrab;
     padding: 0;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2{
+h2 {
     display: flex;
     justify-content: center;
     font-size: 18px;
     padding: 3em 0;
 }
-.form{
+
+.form {
     display: flex;
     justify-content: center;
 }
+
 .form .input-box {
     position: relative;
 }
-.form .input-box input{
+
+.form .input-box input {
     /* width: 100%; */
     /* border: none;
     outline:none; */
@@ -26,52 +29,63 @@ h2{
     border-radius: 5px;
     border: 2px solid rgb(48, 46, 46);
     margin-bottom: 30px;
-    padding:5px 0 5px 6px;
+    padding: 5px 0 5px 6px;
     margin-right: 5px;
     position: relative;
     transition: all .5s ease;
 }
-.form .input-box input:hover,.form .input-box input:focus{
+
+.form .input-box input:hover,
+.form .input-box input:focus {
     color: #23f4ff;
-    border:  2px solid #23f4ff;
+    border: 2px solid #23f4ff;
     outline: none;
 }
-.form .input-box label{
-    top:0; /* it plays an important rule*/
-    left: 10px;/* it played a major rule*/
+
+.form .input-box label {
+    top: 0;
+    /* it plays an important rule*/
+    left: 10px;
+    /* it played a major rule*/
     width: fit-content;
     padding: 0 1px;
     position: absolute;
     /* position: absolute; allows all the labels to change their position only in one direction */
     font-size: 14px;
     margin-top: 5px;
-    pointer-events: none; /* the curser wiil not change its type */ 
+    pointer-events: none;
+    /* the curser will not change its type */
     transition: all .2s linear;
-    
+
 }
-.form .input-box input:focus ~ label, .form .input-box input:valid ~ label {
+
+.form .input-box input:focus ~ label,
+.form .input-box input:valid ~ label {
     top: -12px;
     /* left:0; */
     font-size: 12px;
-    color: #23f4ff;   
+    color: #23f4ff;
 }
+
 .submit {
     border: 2px solid #23f4ff;
     border-radius: 5px;
     margin-right: 5px;
 }
+
 .submit > a {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     color: #23f4ff;
-    padding-bottom: 2px ;
+    padding-bottom: 2px;
     font-weight: 600;
     transition: all .3s ease;
 }
 
-.submit a:hover, .submit a:focus {
+.submit a:hover,
+.submit a:focus {
     background-color: #23f4ff;
     color: rgb(53, 51, 51);
     font-weight: 600;
