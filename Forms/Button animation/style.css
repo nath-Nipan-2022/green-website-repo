@@ -45,9 +45,8 @@ body {
    width: fit-content;
    position: absolute;
    left: 0;
-   top: 30%;
    pointer-events: none;
-   transition: all .3s ;
+   transition:  .3s;
 }
 .inputArea input:focus,
 .inputArea input:hover{
@@ -55,8 +54,8 @@ body {
 }
 .inputArea input:focus ~ label,
 .inputArea input:valid ~ label {
-   top: 0;
    font-size: 12px;
+   transform: translateY(-12px);
 }
 .btn {
    margin-top: 1.6rem;
