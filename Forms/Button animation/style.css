@@ -33,8 +33,9 @@ body {
 
 .inputArea input{
    border: none;
-   margin-top: .3rem;
+   margin-block: .3rem;
    outline: none;
+   padding-block: 5px;
    color: white;
    background-color: transparent;
    border-bottom: solid#f2f2f2+2px;
