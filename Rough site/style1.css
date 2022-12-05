@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,14 @@
 }
 
 :root {
-    --primary-clr: khaki;
-    --secondary-clr: hsl(54, 76%, 59%);
-    --tertiary-clr: hsl(180, 92%, 91%);
+    --primary-clr: hsl(288, 88%, 84%);
+    --secondary-clr: linear-gradient(#ff9a9a, transparent);
+    --tertiary-clr: hsl(113, 97%, 63%);
     --accent: hsl(0, 0%, 0%, .8);
     --fw-light: 400;
     --fw-dark: 700;
     --ff-basic: 'Lucida Sans', Verdana, sans-serif;
+    --ff-spacial: "Roboto", sans-serif;
 }
 
 /* utility class */
@@ -32,6 +35,8 @@
 .button {
     border: none;
     background: var(--secondary-clr);
+    font-family: var(--ff-spacial);
+    box-shadow: 0 2px .7rem rgb(0, 0, 0, .2);
     padding: .4rem .8rem;
     border-radius: .4rem;
     text-transform: uppercase;
@@ -39,9 +44,12 @@
     transition: .3s ease;
 }
 
+.button:hover {
+    box-shadow: 0 0 1rem 0 rgba(255, 255, 255);
+}
+
 /* main css */
 body {
-    background-color: var(--primary-clr);
     font-family: var(--ff-basic);
     background-color: #ddd;
 }
@@ -75,10 +83,12 @@ body {
 nav {
     /* border: 1px solid rgb(0, 0, 0); */
     background-color: transparent;
+    width: 70%;
 }
 
 .nav-links {
     padding-inline: .5rem;
+    justify-content: space-between;
 }
 
 .nav-links li {
@@ -89,7 +99,10 @@ nav {
 }
 
 /* MEDIA QUERY FOR MOBILES 📱 */
-@media (max-width: 460px) {
+@media (max-width: 560px) {
+    nav{
+        width: 50%;
+    }
     .nav-links {
         flex-direction: column;
         justify-content: center;
@@ -100,7 +113,7 @@ nav {
         transform-origin: right top;
         transition: .3s ease-in-out;
     }
-
+    
     .nav-links.active {
         padding: 1.8rem 1.7rem;
         gap: 1.5rem;
@@ -113,9 +126,10 @@ nav {
 .nav-links li a {
     letter-spacing: 1.5px;
     color: #000;
-    /* to place the hovered item little bit down */
+    font-weight: var(--fw-dark);
     padding-bottom: 5px;
     position: relative;
+    font-family: "Roboto",sans-serif;
 }
 
 /* STYLING THE HOVER EFFECT */
@@ -147,7 +161,7 @@ nav {
     position: relative;
 }
 
-@media (min-width:460px) {
+@media (min-width:560px) {
     .menu {
         display: none;
     }
@@ -189,52 +203,73 @@ nav {
 
 /* HERO SECTION */
 .hero-section {
-    height: 60vh;
+    height: 70vh;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1.2rem;
-    background: var(--primary-clr);
+    gap: 1.2em;
+    /** typography */
+    letter-spacing: 1.3px;
+    font-family: 'Rubik', sans-serif;
+    background: url(/Coding_images/SnackFood.jpg) right/cover no-repeat;
+    background-color: rgb(0, 0, 0, .55);
+    background-blend-mode: overlay;
+    color: #f4f4f4;
 }
-.heroText{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.8rem;
+
+/** small devices:*/
+/** hero font-size: 2rem -> 3rem*/
+.heroText {
+    font-size: 2.3rem;
+    text-align: center;
 }
-.sub-text {
+
+/** small devices */
+/** sub-hero font-size: 0.5 -> 1rem*/
+.sub-heroText {
     font-size: .75rem;
     font-weight: var(--fw-light);
-    line-height: 1.5;
-    max-width: 85%;
+    max-width: 80%;
+    text-align: center;
     line-height: 1.4;
 }
 
+/** Big devices */
 @media screen and (min-width: 450px) {
-    .hero-section{
-        height: 80vh;
-        gap: 1.5rem;
+    .hero-section {
+        height: 90vh;
+        gap: 2.1em;
     }
+
+    /** hero font-size: 4rem -> 5rem*/
     .heroText {
-        font-size: 3.6rem;
+        font-size: 4.6rem;
     }
-    .sub-text{
-        font-size: 1.3rem;
+
+    /** hero font-size: 1rem -> 1.1rem*/
+    .sub-heroText {
+        max-width: 70%;
+        font-size: 1.05rem;
     }
 }
 
 /* CARDS SECTION */
 .cards-section {
-    background: var(--tertiary-clr);
-    flex-direction: column;
-    justify-content: space-between;
+    background-image: url(/Coding_images/DeccentBg.jpg);
+    background-position: bottom;
+    /* flex-direction: column;
+    justify-content: space-between; */
+    display: grid;
 }
-
 .card {
     padding: .65rem;
-    max-width: 400px;
     margin: .6rem auto;
-    box-shadow: 0 0 1rem #7e7474;
-    border-radius: 8px;
+    background: linear-gradient( rgba(255, 255, 255,.3), rgba(255, 255, 255,.8));
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 1rem rgb(0, 0, 0, .5);
+    border-radius: 1rem;
+    font-family: var(--ff-spacial);
     text-align: center;
 }
 
@@ -248,7 +283,10 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: .5rem;
+    transition: .3s ease;
 }
+
 
 .card-banner h5 {
     text-transform: uppercase;
@@ -259,20 +297,30 @@ nav {
 
 .card-text {
     padding-bottom: 1rem;
+    text-align: center;
+    padding-inline: 1rem;
 }
 
 /* CARD RESPONSIVENESS */
-@media (min-width: 460px) {
-
+@media (min-width: 580px) {
     /* Main Crucial part*/
     .cards-section {
-        flex-direction: row;
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        gap: 2.2rem;
+        overflow: scroll;
+    }
+
+    /**MOST FANCY STYLE 😍⭐⚡ */
+    .cards-section:has(.card:hover) .card:not(:hover){
+        scale: .9;
     }
 
     .card {
-        max-width: calc(700px / 3);
-        border: none;
-        border-radius: 3px;
+        transition: .5s cubic-bezier(0.39, 0.575, 0.565, 1)  ;
+    }
+    
+    .card:hover {
+        box-shadow: 0 0 1rem rgb(0, 0, 0, .2);
     }
 
     .card-banner h5 {
@@ -296,12 +344,16 @@ nav {
 /* signup section */
 .signup-section {
     text-align: center;
+    display: grid;
+    place-items: center;
+    height: 20vh;
+    background-color: #252525;
 }
 
 .signup-btn {
-    background-color: var(--accent);
+    background-color: rgb(221, 221, 3);
     box-shadow:
-        0 0 3rem #444;
+        0 0 3rem rgb(255, 255, 255, .6);
     position: relative;
     overflow: hidden;
 }
@@ -309,7 +361,7 @@ nav {
 .signup-btn a {
     font-size: .8rem;
     letter-spacing: 2px;
-    color: #fff;
+    color: #000;
     font-weight: var(--fw-dark);
     transition: .3s ease;
 }
@@ -321,12 +373,8 @@ nav {
     transform: translate(150%, -50%) rotate(360deg);
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 14px solid var(--secondary-clr);
+    border-left: 14px solid black;
     opacity: 0;
-}
-
-.signup-btn:hover {
-    box-shadow: 0px 0 2rem #444;
 }
 
 .signup-btn:hover::before {
@@ -349,29 +397,29 @@ nav {
     }
 }
 
-/**  Scrollbar Modification for chrome and Firefox*/
-::-webkit-scrollbar {
-    width: 1rem;
+footer {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
 }
 
-::-webkit-scrollbar-track {
-
-    background-color: hsl(0, 14%, 53%);
+/** Scrollbar Modification for chrome and Firefox */
+::-webkit-scrollbar {
+    width: 1px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(rgb(128, 16, 16), rgb(66, 66, 248));
-    border-radius: 10px;
-    /* border: 1px solid #363636; */
+    background: linear-gradient(rgb(255, 255, 255), rgb(104, 104, 252));
+    border-radius: .4rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
     background: rgb(54, 0, 54);
-}
+} */
 
 @supports (scrollbar-color:inherit) {
     * {
         scrollbar-color: #8f538f #e7e1e1;
-        scrollbar-width: thin;
+        scrollbar-width: 1px;
     }
 }
