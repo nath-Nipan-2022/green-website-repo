@@ -16,7 +16,7 @@
   --hero-bg-clr: #30522e66;
   --features-bg-clr: #313329;
 
-  --accent: #f5c55b;
+  --accent: #fcc140;
   --cta-shadow: #62c45f;
 
   --ff-stylish: "Raleway", sans-serif;
@@ -157,9 +157,8 @@ nav {
   width: 52vw;
   height: 100vh;
 }
-
 nav > * {
-  margin-inline: 1.25rem;
+  padding-inline: 1.125rem;
   width: min(200px, 100%);
 }
 
@@ -168,7 +167,6 @@ nav > * {
   /* centering the items for small screens */
   flex-direction: column;
   align-items: start;
-  gap: 0.8rem;
 }
 
 nav,
@@ -190,7 +188,7 @@ nav.active :is(.nav-links li, .btns) {
 }
 
 .nav-links li {
-  padding: 0.35rem 0;
+  width: 100%;
   position: relative;
 }
 .nav-links li:nth-child(2) {
@@ -226,10 +224,12 @@ nav.active :is(.nav-links li, .btns) {
 /* style of nav links */
 .nav-links a {
   letter-spacing: 1px;
-  padding: 0.3rem 0;
+  display: block;
+  padding: 0.85rem 0;
   color: var(--text-clr-light);
   text-transform: uppercase;
-  font-size: 0.938em; /* 15 px */
+  font-size: 0.825rem;
+  /* 14 px */
 }
 
 .login-btn a {
@@ -241,15 +241,15 @@ nav.active :is(.nav-links li, .btns) {
   left: 0;
   bottom: 0;
   width: 0;
-  height: 3px;
+  height: 2px;
   background-color: var(--accent);
-  box-shadow: 0px 3px 4px #787878;
-  border-radius: 0.3rem;
-  transition: 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0px 6px 6px #1f1f1f43;
+  border-radius: 4px;
+  transition: 0.25s cubic-bezier(0.175, 0.885, 0.32, 1);
 }
 
-.nav-links li:hover::after {
-  width: 100%;
+.nav-links li:is(.active, :hover)::after {
+  width: 80%;
 }
 
 /* Hero section starts */
@@ -396,14 +396,14 @@ section#features {
 .about-section,
 .features-section,
 .footer-section {
-  padding-block: 2rem;
+  padding-block: 2.5rem;
 }
 
 /* about section */
 .about-section {
   line-height: 1.6;
   text-align: center;
-  width: min(100%, 70vw);
+  width: min(100%, 800px);
 }
 .about-section h2 {
   padding-bottom: 1rem;
@@ -417,21 +417,20 @@ footer {
 }
 
 .footer-links {
-  padding-bottom: 2rem;
-  width: fit-content;
-}
-
-.footer-links li {
-  padding: 0.3rem 0;
+  margin-bottom: 2rem;
+  width: 40%;
 }
 
 .footer-links a {
-  border-radius: 3px;
-  font-size: 1.25em;
+  display: block;
+  padding: 0.35rem 0;
+  font-size: 1.125rem;
+  text-decoration: underline;
 }
 
 .footer-links a:hover {
   color: #000;
+  text-decoration: none;
 }
 
 .footer-links:hover > *:not(:hover) {
@@ -465,12 +464,13 @@ footer {
 /* menu styling starts */
 .menu {
   width: 20px;
-  height: 15px;
+  aspect-ratio: 1;
   z-index: 2;
   left: 1rem;
   top: 1rem;
   border-radius: 0.2rem;
   cursor: pointer;
+  transition: 0.15s;
 }
 
 .menu .line {
@@ -583,6 +583,7 @@ footer {
   }
   .features-section {
     flex-direction: column;
+    padding-bottom: 2rem;
   }
   .features .rect {
     width: 20px;
@@ -619,7 +620,8 @@ footer {
   .features .image-section {
     display: grid;
     max-width: 20rem;
-    min-height: 240px;
+    /* min-height: 240px; */
+    aspect-ratio: 4/3;
     z-index: 1;
     position: relative;
   }
@@ -662,14 +664,20 @@ footer {
     height: auto;
     background-color: transparent;
   }
-
+  nav > * {
+    padding: 0;
+  }
   .nav-links {
     flex-direction: row;
-    justify-content: space-between;
-    background-color: transparent;
+    gap: 1rem;
+    align-items: center;
   }
-
+  .nav-links li:is(.active, :hover)::after {
+    width: 100%;
+    height: 4px;
+  }
   .nav-links a {
+    padding: 0.25rem 0;
     color: var(--slite-dark-clr);
   }
   :is(nav, .nav-links li, .btns) {
@@ -680,23 +688,15 @@ footer {
   .btns > * {
     margin: 0 0.5rem;
   }
-
   .login-btn {
     box-shadow: inset 0 0 0 2px var(--hero-bg-clr);
   }
-
   .login-btn:hover {
     background-color: var(--features-bg-clr);
   }
-
   .login-btn:hover a {
     color: var(--text-clr-light);
   }
-
-  .nav-links li.active::after {
-    width: 100%;
-  }
-
   .login-btn a {
     color: var(--slite-dark-clr);
   }
