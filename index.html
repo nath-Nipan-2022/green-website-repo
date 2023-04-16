@@ -31,66 +31,52 @@
         </div>
         <nav>
           <!-- nav-Links -->
-          <ul class="nav-links flex-group">
-            <li class="active"><a href="#home">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#about">About</a></li>
+          <ul class="nav-links">
+            <li class="active">
+              <a href="#home">Home</a>
+            </li>
+            <li style="--d: 0.1s">
+              <a href="#">Services</a>
+            </li>
+            <li style="--d: 0.2s">
+              <a href="#features">Features</a>
+            </li>
+            <li style="--d: 0.3s">
+              <a href="#about">About</a>
+            </li>
           </ul>
           <!-- Buttons -->
-          <div class="btns">
-            <button class="button login-btn">
-              <a href="#">login</a>
-            </button>
-            <button class="button cta signup">
-              <a href="#">SignUp</a>
-            </button>
+          <div class="btns" style="--d: 0.4s">
+            <a href="#" class="signin-btn button">Sign In</a>
+            <a href="#" class="button signup">Sign Up</a>
           </div>
         </nav>
       </div>
     </header>
     <!-- Hero section -->
-    <section id="home" class="relative">
+    <section id="home">
       <div class="container hero-section">
-        <figure class="hero-image absolute w-full h-full">
-          <img
-            src="https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            alt="greeny rice trees"
-            class="w-full h-full"
-            width="100"
-            height="100"
-          />
-        </figure>
         <div class="hero-contents">
           <h1 class="hero-text">Let's Feel The Nature</h1>
-          <button class="button cta">
-            <a href="#features"
-              >Start Journey
-              <i class="fa-sharp fa-solid fa-arrow-right"></i>
-            </a>
-          </button>
+          <a href="#features" class="cta button">
+            Explore Now
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
-        <div class="follow-me absolute">
-          <a href="https://github.com/nath-Nipan-2022"
-            ><i class="fa-brands fa-github"></i
-          ></a>
+        <div class="social-links">
+          <a href="#"><i class="fa-brands fa-github"></i></a>
           <a href="#"><i class="fa-brands fa-linkedin"></i></a>
           <a href="#"><i class="fa-brands fa-twitter"></i></a>
         </div>
-        <!-- 2 rectangles -->
-        <span class="rect absolute"> </span>
-        <span class="rect absolute"></span>
       </div>
     </section>
     <!-- Features section -->
     <section id="features" class="relative">
       <div class="container features-section relative flex-group">
-        <h2 class="features_heading w-full">Features</h2>
+        <h2 class="features_heading w-full">Features of Nature</h2>
 
         <div class="features feature-one flex-group">
-          <!-- left feature -->
-          <!-- small rectangle -->
-          <div class="rect absolute"></div>
+          <div class="circle absolute"></div>
 
           <figure class="image-section">
             <img
@@ -102,31 +88,28 @@
           </figure>
           <div class="text-section">
             <h3 class="title">
-              <i class="fa-sharp fa-solid fa-flower-tulip"></i>
-              <span> Flower</span>
+              <span>Flower</span>
             </h3>
             <p class="description">
               Among the all kinds of flowers, Sunflower is one of the bright &
               well structured flowers. It always attracts us! &#128512;
             </p>
-            <a href="#" class="know-more-btn">Know More</a>
+            <a href="#" class="button more-btn">Know More</a>
           </div>
         </div>
         <!-- right feature -->
         <div class="features feature-two flex-group">
-          <!-- small rectangle -->
-          <div class="rect absolute"></div>
+          <div class="circle absolute"></div>
 
           <div class="text-section">
             <h3 class="title">
-              <i class="fa-solid fa-snowflake"></i>
               <span>Snow</span>
             </h3>
             <p class="description">
               The smooth surface and the beauty of snow falls really makes to go
               and play with the snows! &#128514;
             </p>
-            <a href="#" class="know-more-btn">Know More</a>
+            <a href="#" class="button more-btn">Know More</a>
           </div>
           <figure class="image-section">
             <img
@@ -139,8 +122,8 @@
         </div>
         <!-- left feature -->
         <div class="features feature-three flex-group">
-          <!-- small rectangle-->
-          <div class="rect absolute"></div>
+          <!-- small circleangle-->
+          <div class="circle absolute"></div>
 
           <figure class="image-section">
             <img
@@ -152,7 +135,6 @@
           </figure>
           <div class="text-section">
             <h3 class="title">
-              <i class="fa-solid fa-umbrella-beach"></i>
               <span>Natural Umbrella</span>
             </h3>
             <p class="description">
@@ -160,7 +142,7 @@
               Mesmerizing and Wonderful that How nature is so perfect in showing
               beauty, is'nt it? &#128513;
             </p>
-            <a href="#" class="know-more-btn">Know More</a>
+            <a href="#" class="button more-btn">Know More</a>
           </div>
         </div>
       </div>
