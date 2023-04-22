@@ -1,12 +1,18 @@
-// selecting the nav
 const nav = document.querySelector("nav");
-const navLinks = document.querySelector(".nav-links");
-// selecting the menu
+const navLinks = document.querySelectorAll(".nav-links li");
 const menu = document.querySelector("#menu");
 
 menu.addEventListener("click", function (e) {
-	e.stopPropagation();
-	menu.classList.toggle("active");
-	nav.classList.toggle("active");
-	navLinks.classList.toggle("active");
+  e.stopPropagation();
+  menu.classList.toggle("active");
+  nav.classList.toggle("active");
+  navLinks.classList.toggle("active");
 });
+
+navLinks.forEach((link) => link.addEventListener("click", addActiveClass));
+
+function addActiveClass() {
+  navLinks.forEach((link) => link.classList.remove("active"));
+
+  this.classList.add("active");
+}
