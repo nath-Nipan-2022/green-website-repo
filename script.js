@@ -3,46 +3,58 @@ const navLinks = document.querySelectorAll(".nav-links li");
 const menu = document.querySelector("#menu");
 
 document.body.addEventListener("click", (e) => {
-	if (!menu.contains(e.target) & !nav.contains(e.target)) {
-		nav.classList.remove("active");
-		menu.classList.remove("active");		
-	} else if(menu.contains(e.target)){
-		nav.classList.toggle("active");
-		menu.classList.toggle("active");
-	}
+  if (!menu.contains(e.target) & !nav.contains(e.target)) {
+    nav.classList.remove("active");
+    menu.classList.remove("active");
+  } else if (menu.contains(e.target)) {
+    nav.classList.toggle("active");
+    menu.classList.toggle("active");
+  }
 });
 
 navLinks.forEach((link) => link.addEventListener("click", addActiveClass));
 
 function addActiveClass() {
-	navLinks.forEach((link) => link.classList.remove("active"));
-	this.classList.add("active");
+  navLinks.forEach((link) => link.classList.remove("active"));
+  this.classList.add("active");
 }
 
+// animation for vertical line 📏 & circles ⚪
+const verticalLine = document.querySelector(".vertical");
+const circles = document.querySelectorAll(".circle");
+const horizontalLines = document.querySelectorAll(".horizontal");
+const startingPoint = document.querySelector("#home").offsetHeight / 2;
+
+let activeIndex = 0;
+
+/// **  Description **
+/**
+ * animation will start at height/2 of the Home page.
+ * when scrollAmount >= height of a feature card
+ * we want to increment active Index and
+ * then animate vertical line and the circles.
+ */
+
 function scrollEffect() {
-	const verticalLine = document.querySelector(".vertical");
-	const parent = verticalLine.parentElement;
-	const prevElem = parent.previousElementSibling;
-	const html = document.documentElement;
+  const scrollAmt = scrollY - startingPoint;
 
-	let height = 0;
-	let scrollTop = html.scrollTop;
+  if (scrollAmt < 0) {
+    activeIndex = 0;
+    circles.forEach((circle) => circle.classList.remove("active"));
+    horizontalLines.forEach((circle) => circle.classList.remove("active"));
+    verticalLine.style.height = 0;
+    return;
+  }
 
-	const OFFSET_TOP = verticalLine.offsetTop;
-	const MIN_HEIGHT = prevElem.scrollHeight / 2;
-	const MAX_HEIGHT = parent.clientHeight - (OFFSET_TOP * 2);
+  const amtToScroll =
+    document.querySelector(".feature").offsetHeight * (activeIndex + 1);
 
-	if (scrollTop >=  MIN_HEIGHT) {
-		height = scrollTop - MIN_HEIGHT;
-
-		if (height >= MAX_HEIGHT) {
-			height = MAX_HEIGHT;
-		}
-	} else {
-		height = 0;
-	}
-
-	verticalLine.style.height = `${height}px`;
+  if (scrollAmt >= amtToScroll) {
+    activeIndex = Math.min(activeIndex + 1, circles.length);
+    verticalLine.style.height = `${(activeIndex * 100) / circles.length}%`;
+    circles[activeIndex - 1].classList.add("active");
+    horizontalLines[activeIndex - 1].classList.add("active");
+  }
 }
 
 window.onscroll = scrollEffect;
